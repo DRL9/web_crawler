@@ -12,7 +12,8 @@
   },
   "keywords": [
     "e-hantai",
-    "crawler"
+    "crawler",
+    "cli"
   ],
   "author": "drl",
   "license": "MIT"
