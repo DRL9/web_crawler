@@ -1,0 +1,19 @@
+{
+  "name": "web_crawler",
+  "version": "1.0.0",
+  "description": "爬取某站的漫画",
+  "main": "index.js",
+  "scripts": {
+    "test": "null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "e-hantai",
+    "crawler"
+  ],
+  "author": "drl",
+  "license": "MIT"
+}
