@@ -1,0 +1,5 @@
+# 依赖库
+node_modules/
+
+# IDE 目录
+.vscode/
