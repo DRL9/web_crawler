@@ -16,5 +16,8 @@
     "cli"
   ],
   "author": "drl",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^8.0.2"
+  }
 }
