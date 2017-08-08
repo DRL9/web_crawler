@@ -7,7 +7,7 @@ var initDir = require('../lib/init_dir')
 describe('init_dir', () => {
     var testDir = path.join(__dirname, 'tmp')
         , rightDir = []
-        , wrongDir = 'Z:\\'
+        , wrongDir = 'ZZZ:\\'
         ;
 
     before(() => {
