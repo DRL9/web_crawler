@@ -17,6 +17,7 @@
   "author": "drl",
   "license": "MIT",
   "dependencies": {
+    "request": "^2.81.0",
     "yargs": "^8.0.2"
   }
 }
