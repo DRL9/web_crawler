@@ -2,7 +2,12 @@ var initDir = require('../lib/init_dir')
     , path = require('path')
     , fs = require('fs')
     , assert = require('assert')
+    , chai = require('chai')
+    , chaiAsPormised = require('chai-as-promised')
+    , should = require('chai').should()
     ;
+
+chai.use(chaiAsPormised);
 
 describe('init_dir', () => {
     var testDir = path.join(__dirname, 'tmp')
@@ -33,12 +38,8 @@ describe('init_dir', () => {
         });
     });
 
-    it(`cannot init ${wrongDir}`, (done) => {
-        initDir(wrongDir).then(() => {
-            done(new Error('应该抛出异常'))
-        }, () => {
-            done();
-        });
+    it(`cannot init ${wrongDir}`, () => {
+        return initDir(wrongDir).should.be.rejected
     });
 
     after(() => {
