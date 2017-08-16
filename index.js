@@ -1,5 +1,6 @@
 var yargs = require('yargs')
     , path = require('path')
+    , fetch = require('./lib/cli_args/fetch')
     ;
 
 yargs.options({
@@ -19,10 +20,7 @@ yargs.command('fetch', '下载漫画', {
     var url = argv['url']
         , dist = argv['dist'] || path.join(process.cwd(), 'download')
         ;
-    /**
-     * @todo 处理该命令
-     */
-    console.log(url, dist);
+    fetch(url, dist);
 });
 
 yargs.help().argv;
