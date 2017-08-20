@@ -7,7 +7,7 @@ yargs.options({
 });
 
 yargs.command('fetch', '下载漫画', {
-    'dist': {
+    'dest': {
         alias: 'd',
         describe: '保存位置(默认{当前进程所在目录}/download)'
     },
@@ -18,9 +18,9 @@ yargs.command('fetch', '下载漫画', {
     }
 }, function (argv) {
     var url = argv['url']
-        , dist = argv['dist'] || path.join(process.cwd(), 'download')
+        , dest = argv['dest'] || path.join(process.cwd(), 'download')
         ;
-    fetch(url, dist);
+    fetch(url, dest);
 });
 
 yargs.help().argv;
