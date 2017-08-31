@@ -3,6 +3,8 @@ const chai = require('chai')
     , crawler = require('../lib/crawler')
     ;
 
+require('../test_server')
+
 chai.should();
 chai.use(chaiAsPromised);
 
