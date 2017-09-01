@@ -28,5 +28,16 @@ function handleTimeOut(params, resp) {
     }, parseInt(params['time']));
 }
 
+/**
+ *
+ * @param {Number} port
+ */
+function listen(port = 3001) {
+    server.listen(port);
+}
 
-server.listen(3001);
+exports.listen = listen;
+
+exports.close = function () {
+    server.close();
+}

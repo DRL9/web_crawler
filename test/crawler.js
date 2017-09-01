@@ -1,14 +1,21 @@
 const chai = require('chai')
     , chaiAsPromised = require('chai-as-promised')
     , crawler = require('../lib/crawler')
+    , server = require('../test_server')
     ;
-
-require('../test_server')
 
 chai.should();
 chai.use(chaiAsPromised);
 
 describe('crawler', () => {
+    before(() => {
+        server.listen();
+    });
+
+    after(() => {
+        server.close();
+    });
+
     describe('.crawl(url)', function () {
         this.timeout(4000);
 
