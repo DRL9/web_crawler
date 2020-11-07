@@ -18,9 +18,10 @@ yargs.command(
             demandOption: true
         }
     },
-    function(argv) {
+    function (argv) {
         var url = argv['url'],
             dest = argv['dest'] || path.join(process.cwd(), 'download');
+        console.log('url', url, 'dest', dest);
         fetch(url, dest);
     }
 );

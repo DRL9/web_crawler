@@ -4,6 +4,7 @@
   "description": "爬取某站的漫画",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix --ext .js .",
     "test": "mocha --recursive ./test "
   },
   "repository": {
@@ -21,5 +22,8 @@
     "chai-as-promised": "^7.1.1",
     "request": "^2.81.0",
     "yargs": "^8.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.1"
   }
 }
