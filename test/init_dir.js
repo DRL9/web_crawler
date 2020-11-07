@@ -1,20 +1,15 @@
-var initDir = require('../lib/init_dir')
-    , path = require('path')
-    , fs = require('fs')
-    , assert = require('assert')
-    , chai = require('chai')
-    , chaiAsPormised = require('chai-as-promised')
-    , should = require('chai').should()
-    ;
-
+var initDir = require('../lib/init_dir'),
+    path = require('path'),
+    fs = require('fs'),
+    assert = require('assert'),
+    chai = require('chai'),
+    chaiAsPormised = require('chai-as-promised'),
+    should = require('chai').should();
 chai.use(chaiAsPormised);
 
 describe('init_dir', () => {
-    var testDir = path.join(__dirname, 'tmp')
-        , rightDir = []
-        , wrongDir = 'ZZZ:\\'
-        ;
-
+    var testDir = path.join(__dirname, 'tmp'),
+        rightDir = [];
     before(() => {
         fs.mkdirSync(testDir);
     });
@@ -27,24 +22,21 @@ describe('init_dir', () => {
     rightDir.forEach((dir) => {
         it(`can init_dir ${dir}`, (done) => {
             initDir(dir).then(() => {
-                fs.exists(dir, (exists) => {
-                    if (exists) {
-                        done();
-                        return;
-                    }
-                    done(new Error(`${dir} init failed`));
-                })
-            })
+                if (fs.existsSync(dir)) {
+                    done();
+                    return;
+                }
+                done(new Error(`${dir} init failed`));
+            });
         });
-    });
-
-    it(`cannot init ${wrongDir}`, () => {
-        return initDir(wrongDir).should.be.rejected
     });
 
     after(() => {
-        rightDir.slice(0, rightDir.length - 1).reverse().forEach((dir) => {
-            fs.rmdirSync(dir);
-        });
+        rightDir
+            .slice(0, rightDir.length - 1)
+            .reverse()
+            .forEach((dir) => {
+                fs.rmdirSync(dir);
+            });
     });
 });
