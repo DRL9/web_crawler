@@ -18,6 +18,7 @@
   "author": "drl",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "chai": "^4.1.1",
     "chai-as-promised": "^7.1.1",
     "request": "^2.81.0",

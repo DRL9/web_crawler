@@ -16,13 +16,23 @@ yargs.command(
             alias: 'u',
             describe: '漫画介绍页url',
             demandOption: true
+        },
+        begin: {
+            alias: 'b',
+            describe: '开始页面'
+        },
+        end: {
+            alias: 'e',
+            describe: '结束页面'
         }
     },
     function (argv) {
         var url = argv['url'],
             dest = argv['dest'] || path.join(process.cwd(), 'download');
-        console.log('url', url, 'dest', dest);
-        fetch(url, dest);
+        let begin = argv['begin'] || 1;
+        let end = argv['end'];
+        console.log('url', url, 'dest', dest, 'begin', begin, end);
+        fetch(url, dest, begin, end);
     }
 );
 
